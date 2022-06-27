@@ -7,7 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Bellybutton Biodiversity</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
+  <link rel="stylesheet" href="../../static/css/style.css">
+</head> 
 
 <body>
 
@@ -15,7 +16,8 @@
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
         <h1>Belly Button Biodiversity Dashboard</h1>
-        <p>Use the interactive charts below to explore the dataset</p>
+        <br>
+        <h4>Use the interactive charts below to explore the dataset</h4>
       </div>
     </div>
     <div class="row">
@@ -24,8 +26,8 @@
           <h5>Test Subject ID No.:</h5>
           <select id="selDataset" onchange="optionChanged(this.value)"></select>
         </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
+        <div class="panel panel-default">
+          <div class="panel-heading-custom">
             <h3 class="panel-title">Demographic Info</h3>
           </div>
           <div id="sample-metadata" class="panel-body"></div>
@@ -50,6 +52,10 @@
   <script src="./static/js/app.js"></script>
   <script src="./static/js/bonus.js"></script>
   <script src="data/samples.json"></script>
+
+  <footer>
+    <div class="footer">&copy; Copyright: Shola Hargrave 2022</div>
+  </footer>
 
 </body>
 

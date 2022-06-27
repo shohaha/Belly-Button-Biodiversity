@@ -1,0 +1,51 @@
+.panel-default > .panel-heading-custom {
+    background: CornflowerBlue; color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+}
+
+.col-md-2 > .well {
+    background: CornflowerBlue; color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+}
+
+.jumbotron {
+	background-image: url("/images/background.jpeg");
+	background-size: 100%;
+    text-align: center;   
+}
+
+.jumbotron > h1 {
+    color: MidnightBlue;
+    text-shadow: 1px 3px 2px white;
+}
+
+.jumbotron > h4 {
+    color:  LightSteelBlue;
+    text-shadow: 2px 3px 3px black;
+}
+
+  /* Footer */
+  footer{
+    background-color: LightSteelBlue; 
+    border-top-style: solid; 
+    border-top-width: 3px; 
+    border-top-color: #ffffff;
+    color: white; 
+    min-height: 55px; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px; 
+    text-align: center; 
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-top: 15px; 
+    }
