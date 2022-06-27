@@ -1,6 +1,6 @@
 var filter = d3.select("#selDataset");
 
-// Starting reference to display
+// Lowest reference to display
 var samp = "940"
 
 // Handle changes
@@ -19,7 +19,7 @@ function renderProcess(){
 
     d3.html('');
 
-    d3.json("samples.json").then((data) => {
+    d3.json("data/samples.json").then((data) => {
         // Create variable to hold samples array
         var samples = data.samples;
 
@@ -48,6 +48,8 @@ function renderProcess(){
         var sample_values = result.sample_values;
         var otu_labels = result.otu_labels;
 
+        // Bar Chart //
+
         // Format x, y tickers and labels for bar chart in descending order
         var yticks = otu_ids.slice(0, 10).map(otuID => `OTU ${otuID}`).reverse();
         var xticks = sample_values.slice(0, 10).reverse();
@@ -62,7 +64,15 @@ function renderProcess(){
             y: yticks,
             text: labels,
             orientation: 'h',
-            type: 'bar'
+            type: 'bar',
+            marker: {
+                color: 'rgb(158,202,225)',
+                opacity: 0.6,
+                line: {
+                color: 'rgb(8,48,107)',
+                width: 1.5
+                }
+            }
         };
 
         var data = [trace1]
@@ -97,7 +107,7 @@ function renderProcess(){
             marker: {
                 color: xticksbub,
                 size: yticksbub,
-                colorscale: "Earth"
+                colorscale: "Jet"
             },
             text: labelsbub
         };
@@ -136,7 +146,7 @@ function renderProcess(){
         var wfreq = result2.wfreq;
 
         // Create formatting to read data
-        var demoinfo = `id: ${id} <br> ethnicity: ${ethnicity} <br> gender: ${gender} <br> age: ${age} <br> location: ${location} <br> bbtype: ${bbtype} <br> wfreq: ${wfreq}`
+        var demoinfo = `ID: ${id} <br> Ethnicity: ${ethnicity} <br> Gender: ${gender} <br> Age: ${age} <br> Location: ${location} <br> BB Type: ${bbtype} <br> wFreq: ${wfreq}`
 
         document.getElementById('sample-metadata').innerHTML = demoinfo;
 
@@ -146,25 +156,27 @@ function renderProcess(){
             {
                 title: {text: "Belly Button Washing Frequency <br> Scrubs per Week"},
                 type: "indicator",
-                mode: "gauge+number",
+                mode: "gauge+number+delta",
                 value: wfreq,
+                delta: { reference: 0, increasing: { color: "RosyBrown"}},
 
         // Create gauge range from 0-9
                 gauge: {
+                    bar: { color: "PeachPuff"},
                     axis: { range: [null, 9], ticks:9},
                     steps: [
-                        { range: [0, 1], color: "lightgray"},
-                        { range: [1, 2], color: "gray"},
-                        { range: [2, 3], color: "lightgray"},
-                        { range: [3, 4], color: "gray"},
-                        { range: [4, 5], color: "lightgray"},
-                        { range: [5, 6], color: "gray"},
-                        { range: [6, 7], color: "lightgray"},
-                        { range: [7, 8], color: "gray"},
-                        { range: [8, 9], color: "lightgray"}
+                        { range: [0, 1], color: "GhostWhite"},
+                        { range: [1, 2], color: "Gainsboro"},
+                        { range: [2, 3], color: "GhostWhite"},
+                        { range: [3, 4], color: "Gainsboro"},
+                        { range: [4, 5], color: "GhostWhite"},
+                        { range: [5, 6], color: "Gainsboro"},
+                        { range: [6, 7], color: "GhostWhite"},
+                        { range: [7, 8], color: "Gainsboro"},
+                        { range: [8, 9], color: "GhostWhite"}
                     ],
                     threshold: {
-                        line: { color: "red", width: 3},
+                        line: { color: "Coral", width: 7.5},
                         thickness: 0.75,
                         value: wfreq
                     }
